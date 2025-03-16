@@ -33,15 +33,16 @@ def copy_file(src, dst):
         sys.exit(1)
 
 if __name__ == "__main__":
-    # if len(sys.argv) != 3:
-    #     print("使用方法: python copy_file.py <源文件路径> <目标路径>")
-    #     print("示例: python copy_file.py /path/to/source.txt /path/to/destination/")
-    #     sys.exit(1)
+    if len(sys.argv) != 2:
+        print("使用方法: python image/execute")
+        sys.exit(1)
 
     # source = sys.argv[1]
     # destination = sys.argv[2]
-
-    source = '/home/book/Project/buildroot-2024.02.9/output/images/sdcard.img'
-    destination = '/mnt/hgfs/FZSFolder'
-
+    if(sys.argv[1] == 'execute'):
+        source = '/home/book/Project/MonitorSystem/backend/build/main/MonitorSystem'
+        destination = '/home/book/Project/buildroot-2024.02.9/board/orangepi/orangepi-zero3/overlay/root'
+    if(sys.argv[1] == 'image'):
+        source = '/home/book/Project/buildroot-2024.02.9/output/images/sdcard.img'
+        destination = '/mnt/hgfs/FZSFolder'
     copy_file(source, destination)

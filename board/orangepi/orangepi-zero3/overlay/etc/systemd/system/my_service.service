@@ -1,0 +1,10 @@
+[Unit]
+Description=My Auto Start Service
+After=network.target
+
+[Service]
+ExecStart=/root/MonitorSystem
+WorkingDirectory=/root
+
+[Install]
+WantedBy=multi-user.target
